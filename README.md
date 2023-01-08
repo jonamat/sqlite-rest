@@ -65,7 +65,7 @@ $ docker run -p 8080:8080 -v /path/to/db.sqlite:/db.sqlite jonamat/sqlite-rest -
 [Create record](#create-record)<br>
 [Update record](#update-record)<br>
 [Delete record](#delete-record)<br>
-[Exec](#exec)<br>
+[Execute arbitrary query](#execute-arbitrary-query)<br>
 
 ### Search all
 
@@ -216,7 +216,7 @@ $ curl -X DELETE localhost:8080/cats/1
 }
 ```
 
-### Exec
+### Execute arbitrary query
 
 Execute an arbitrary query. ⚠️ Experimental<br>
 

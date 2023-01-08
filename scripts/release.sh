@@ -1,6 +1,8 @@
 VERSION=`git describe --tags`
 PREFIX=sqlite-rest_${VERSION}_
 
+set -e
+
 echo "Building assets for the release ${VERSION}..."
 
 # Cleanup relaese dir
