@@ -111,6 +111,7 @@ $ curl localhost:8080/cats
 - `limit`: Limit the number of records returned. Default: not set
 - `order_by`: Order the records by a column. Default: `id`
 - `order_dir`: Order the records by a column. Default: `asc`
+- `columns`: Select only the specified columns. Default: `*`
 - `filters_raw`: Filter the records by a raw SQL query. Must be URIescaped.
 - `filters`: Filter the records by a JSON object. Must be URIescaped.
 
@@ -174,6 +175,21 @@ $ curl localhost:8080/cats/1
 
 {
   "id": 1, 
+  "name": "Tequila", 
+  "paw": 4 
+}
+```
+
+**Optional parameters:**<br>
+
+- `columns`: Select only the specified columns. Default: `*`
+
+Example with parameters:<br>
+
+```bash
+$ curl localhost:8080/cats/1?columns=name,paw
+
+{
   "name": "Tequila", 
   "paw": 4 
 }
