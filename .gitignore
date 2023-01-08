@@ -2,3 +2,4 @@
 .env
 /todo
 /*.sqlite
+/release

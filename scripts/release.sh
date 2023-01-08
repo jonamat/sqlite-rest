@@ -14,24 +14,24 @@ mkdir ./release/ \
 ./release/${PREFIX}linux-arm64/
 
 # Copy assets
-cp -R ./LICENSE ./README.md ./CHANGELOG.md ./release/${PREFIX}windows-amd64/ && \
-cp -R ./LICENSE ./README.md ./CHANGELOG.md ./release/${PREFIX}linux-amd64/ && \
-cp -R ./LICENSE ./README.md ./CHANGELOG.md ./release/${PREFIX}linux-arm/ && \
+cp -R ./LICENSE ./README.md ./CHANGELOG.md ./release/${PREFIX}windows-amd64/
+cp -R ./LICENSE ./README.md ./CHANGELOG.md ./release/${PREFIX}linux-amd64/
+cp -R ./LICENSE ./README.md ./CHANGELOG.md ./release/${PREFIX}linux-arm/
 cp -R ./LICENSE ./README.md ./CHANGELOG.md ./release/${PREFIX}linux-arm64/
 
 # Build for each platform
-GOOS=windows GOARCH=amd64 go build -o ./release/${PREFIX}windows-amd64/sqlite-rest.exe . &
-GOOS=linux GOARCH=amd64 go build -o ./release/${PREFIX}linux-amd64/sqlite-rest . &
-GOOS=linux GOARCH=arm64 go build -o ./release/${PREFIX}linux-arm64/sqlite-rest . &
-GOOS=linux GOARCH=arm go build -o ./release/${PREFIX}linux-arm/sqlite-rest . &
+GOOS=windows GOARCH=amd64 go build -o ./release/${PREFIX}windows-amd64/sqlite-rest.exe ./cmd/sqlite-rest.go &
+GOOS=linux GOARCH=amd64 go build -o ./release/${PREFIX}linux-amd64/sqlite-rest ./cmd/sqlite-rest.go &
+GOOS=linux GOARCH=arm64 go build -o ./release/${PREFIX}linux-arm64/sqlite-rest ./cmd/sqlite-rest.go &
+GOOS=linux GOARCH=arm go build -o ./release/${PREFIX}linux-arm/sqlite-rest ./cmd/sqlite-rest.go &
 wait
 
-# Zip folders
+# Archive release folders
 cd ./release/
 zip -r ./${PREFIX}windows-amd64.zip ./${PREFIX}windows-amd64/ &
-zip -r ./${PREFIX}linux-amd64.zip ./${PREFIX}linux-amd64/ &
-zip -r ./${PREFIX}linux-arm64.zip ./${PREFIX}linux-arm64/ &
-zip -r ./${PREFIX}linux-arm.zip ./${PREFIX}linux-arm/ &
+tar -czvf ./${PREFIX}linux-amd64.tar.gz ./${PREFIX}linux-amd64/ &
+tar -czvf ./${PREFIX}linux-arm64.tar.gz ./${PREFIX}linux-arm64/ &
+tar -czvf ./${PREFIX}linux-arm.tar.gz ./${PREFIX}linux-arm/ &
 wait
 
 # Destroy temp dirs
