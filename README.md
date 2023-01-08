@@ -40,7 +40,7 @@ $ docker pull jonamat/sqlite-rest
 $ sqlite-rest -h
 Usage of sqlite-rest:
   -f string
-        Path to the SQLite database file (default "db.sqlite")
+        Path to the SQLite database file (default "data.sqlite")
   -p string
         Port to listen on (default 8080)
 
@@ -56,10 +56,21 @@ $ sqlite-rest
 Only 6 MB of size. Build available for ARM64, ARMv7 and AMD64.
 
 ```bash
-$ docker run -p 8080:8080 -v /path/to/db.sqlite:/data.sqlite jonamat/sqlite-rest
+$ docker run -p 8080:8080 -v "$(pwd)"/data.sqlite:/app/data.sqlite:rw jonamat/sqlite-rest
+```
 
-# Or, if you want to use a different name for the database file
-$ docker run -p 8080:8080 -v /path/to/db.sqlite:/db.sqlite jonamat/sqlite-rest -f /db.sqlite
+**With docker compose**
+  
+```yaml
+  version: "3.7"
+
+  services:
+    sqlite-rest:
+      image: jonamat/sqlite-rest
+      ports:
+        - "8080:8080"
+      volumes:
+        - ./data.sqlite:/app/data.sqlite:rw 
 ```
 
 ## API
