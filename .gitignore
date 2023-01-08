@@ -1,5 +1,4 @@
 /vendor
-go.sum
 .env
 /todo
 /*.sqlite
