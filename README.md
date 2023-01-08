@@ -2,19 +2,37 @@
 
 <p align="center">
   <a href="https://github.com/jonamat/sqlite-rest/actions">
-    <img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/actions/workflow/status/jonamat/sqlite-rest/docker-image.yml?branch=main" />
+    <img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/actions/workflow/status/jonamat/sqlite-rest/docker-image.yml" />
   </a>
 
   <a href="https://github.com/jonamat/sqlite-rest/blob/master/go.mod">
     <img alt="GitHub go.mod Go version" src="https://img.shields.io/github/go-mod/go-version/jonamat/sqlite-rest" />
   </a>
 
-  <a href="https://hub.docker.com/repository/docker/jonamat/sqlite-rest">
+  <a href="https://hub.docker.com/r/jonamat/sqlite-rest">
     <img alt="Docker Image Size (tag)" src="https://img.shields.io/docker/image-size/jonamat/sqlite-rest/latest" />
   </a>
 </p>
 
 Expose CRUD operations for SQLite database over HTTP via REST API. 
+
+## Installation
+
+### From releases page
+  
+Download the binary for your platform from the [releases page](https://github.com/jonamat/sqlite-rest/releases)
+
+### From source
+
+```bash
+$ go get github.com/jonamat/sqlite-rest
+```
+
+### From Docker
+
+```bash
+$ docker pull jonamat/sqlite-rest
+```
 
 ## CLI usage
 
@@ -31,6 +49,8 @@ $ sqlite-rest
 ```
 
 ## Docker usage
+
+Only 6 MB of size. Built available for ARM64, ARMv7 and AMD64.
 
 ```bash
 $ docker run -p 8080:8080 -v /path/to/db.sqlite:/data.sqlite jonamat/sqlite-rest
