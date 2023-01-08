@@ -46,6 +46,9 @@ Usage of sqlite-rest:
 
 # Example with default values
 $ sqlite-rest 
+2023/01/08 17:56:21 Database not found. Creating new one in ./data.sqlite
+2023/01/08 17:56:21 Using database in ./data.sqlite
+2023/01/08 17:56:21 Listening on port 8080
 ```
 
 ## Docker usage
@@ -91,7 +94,7 @@ $ curl localhost:8080/cats
 
 ```
 
-Optional parameters:<br>
+**Optional parameters:**<br>
 
 - `offset`: Offset the number of records returned. Default: `0`
 - `limit`: Limit the number of records returned. Default: not set
@@ -100,9 +103,9 @@ Optional parameters:<br>
 - `filters_raw`: Filter the records by a raw SQL query. Must be URIescaped.
 - `filters`: Filter the records by a JSON object. Must be URIescaped.
 
-Filters:<br>
+**Filters:**<br>
 
-Can be passed as a JSON object or as a raw WHERE clause. The JSON object is more convenient to use, the raw query is more flexible. Both must be URIescaped. Cannot be used together.
+Can be passed as a JSON object or as a raw WHERE clause. The JSON object is more convenient to use, the raw query is more flexible. Both must be URIescaped. Cannot be used together. Filters provided by `filters` param are joined with `AND` operator.
 
 Example with `filters_raw` parameter in cURL:<br>
 
@@ -159,12 +162,9 @@ Example:<br>
 $ curl localhost:8080/cats/1
 
 {
-  "data": { 
-    "id": 1, 
-    "name": 
-    "Tequila", 
-    "paw": 4 
-  }
+  "id": 1, 
+  "name": "Tequila", 
+  "paw": 4 
 }
 ```
 
