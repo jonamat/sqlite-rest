@@ -60,14 +60,15 @@ $ docker run -p 8080:8080 -v /path/to/db.sqlite:/db.sqlite jonamat/sqlite-rest -
 ```
 
 ## API
-[Search all](#search-all)<br>
-[Get record by id](#get-record-by-id)<br>
-[Create record](#create-record)<br>
-[Update record](#update-record)<br>
-[Delete record](#delete-record)<br>
-[Execute arbitrary query](#execute-arbitrary-query)<br>
 
-### Search all
+[Search all records](#search-all-records) - `GET /:table` <br>
+[Get record by id](#get-record-by-id) - `GET /:table/:id` <br>
+[Create record](#create-record) - `POST /:table` <br>
+[Update record by id](#update-record) - `PATCH /:table/:id` <br>
+[Delete record by id](#delete-record) - `DELETE /:table/:id` <br>
+[Execute arbitrary query](#execute-arbitrary-query) - `OPTIONS /__/exec` <br>
+
+### Search all records
 
 Get all record in a table.<br>
 
