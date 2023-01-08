@@ -50,7 +50,7 @@ $ sqlite-rest
 
 ## Docker usage
 
-Only 6 MB of size. Built available for ARM64, ARMv7 and AMD64.
+Only 6 MB of size. Build available for ARM64, ARMv7 and AMD64.
 
 ```bash
 $ docker run -p 8080:8080 -v /path/to/db.sqlite:/data.sqlite jonamat/sqlite-rest
