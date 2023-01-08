@@ -28,3 +28,4 @@ jobs:
           body: ${{ github.event.head_commit.message }}
           files: |
             ./release/*.zip
+            ./release/*.tar.gz
